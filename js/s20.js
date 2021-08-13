@@ -23,11 +23,12 @@ sliderFun()
 let selectors = document.querySelectorAll('.block5-selector-text');
 let selector = document.querySelector('.block5-selectors');
 let but2 = document.querySelectorAll('.item-right');
+let headers = document.querySelectorAll('.block5-selector')
 
 
 
 function selector_active(event) {
-    let idItem = event.target.id;
+    let idItem = this.id;
     let elemNum = idItem.replace('sel', '');
     if (idItem) {
         selectors.forEach(elem => {
@@ -40,8 +41,9 @@ function selector_active(event) {
         but2[elemNum].classList.add('active2');
     }
 }
-selector.onclick = selector_active;
-
+headers.forEach(item => {
+    item.addEventListener('click', selector_active)
+})
 
 
 
